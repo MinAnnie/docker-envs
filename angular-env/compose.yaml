@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  angular-env:
+    env_file: .env
+    build:
+      context: ..
+      dockerfile: dockerfiles/Dockerfile
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    stdin_open: true
+    tty: true
+    user: "${UID}:${GID}"
+
